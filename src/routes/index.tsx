@@ -1,17 +1,23 @@
-import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
-import Signup from "../components/authentication/signup/Signup";
-const routes = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [
-      {
-        path: "signup",
-        element: <Signup />,
-      },
-    ],
-  },
-]);
+import { useRoutes } from 'react-router-dom';
+import Login from '@Components/authentication/login/Login';
+import Signup from '@Components/authentication/signup/Signup';
 
-export { routes };
+
+const routes = [
+  {
+    path: '/',
+    element: <Login />,
+  },
+  {
+    path: '/signup',
+    element: <Signup />,
+  }
+];
+
+const RoutesMap = () => {
+  const routeResult = useRoutes(routes);
+
+  return routeResult;
+};
+
+export default RoutesMap;
